@@ -1,5 +1,29 @@
-<div class="container">
+<div class="container mt-4">
     <button class="btn btn-secondary mb-3" (click)="back()">Back</button>
-    <pre>{{ item | json }}</pre>
+    
+    <div *ngIf="item" class="card">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img 
+            [src]="item.image_url || 'https://via.placeholder.com/300'" 
+            class="img-fluid rounded-start" 
+            alt="Product Image"
+          >
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{ item.product_name || 'No Name Available' }}</h5>
+            <p class="card-text">
+              <strong>Brand:</strong> {{ item.brands || 'Unknown' }}<br>
+              <strong>Category:</strong> {{ item.categories || 'Not Specified' }}<br>
+              <strong>Ingredients:</strong> {{ item.ingredients_text || 'Not Available' }}
+            </p>
+            <p class="card-text">
+              <strong>Nutrition Grade:</strong> {{ item.nutrition_grade || 'N/A' }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   
